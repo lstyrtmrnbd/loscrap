@@ -21,7 +21,7 @@
 
 (define ff-profiles-dir
   (path-append (find-system-path 'home-dir)
-               (cond (is-windows "Application Data\\Mozilla\\Firefox\\Profiles\\")
+               (cond (is-windows "AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\")
                      (is-unix ".mozilla/Firefox/Profiles/")
                      (is-mac "Library/Mozilla/Firefox/Profiles/"))))
 
