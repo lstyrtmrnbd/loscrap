@@ -41,3 +41,14 @@
 (define (ff-copy-cookies)
   (map ff-copy-cookie
        (directory-list ff-profiles-dir)))
+
+(define gc-cookies-dir
+  (path-append (find-system-path 'home-dir)
+               (cond (is-windows "AppData\\Local\\Google\\Chrome\\User Data\\Default\\")
+                     (is-unix ".config/google-chrome/Default/")
+                     (is-mac "Library/Application Support/Google/Chrome/Default/"))))
+
+(define (gc-copy-cookies)
+  (copy-file (path-append gc-cookies-dir "Cookies")
+             (path-append (find-system-path 'orig-dir)
+                          "gc.Cookies.sqlite")))
